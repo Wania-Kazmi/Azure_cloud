@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  azure_service:
+    build:
+      context: ./azure_hello_world
+      dockerfile: Dockerfile.dev
+    volumes:
+      - ./azure_hello_world:/code
+    ports:
+      - "8000:8000"
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
